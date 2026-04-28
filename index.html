@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <title>Music Player</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="bg-glow bg-glow-yellow"></div>
+  <div class="bg-glow bg-glow-blue"></div>
+  <div class="bg-glow bg-glow-pink"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Offline Mini Player</p>
+        <h1>Музыка</h1>
+      </div>
+
+      <button id="addBtn" class="add-btn" type="button">+</button>
+
+      <input
+        id="fileInput"
+        type="file"
+        accept=".mp3,.m4a,.wav,.aac,.flac,.ogg,audio/mpeg,audio/mp4,audio/wav,audio/aac,audio/flac,audio/ogg,audio/*"
+        multiple
+      />
+    </header>
+
+    <section class="hero-card">
+      <div class="hero-cover">♪</div>
+
+      <div class="hero-text">
+        <p class="hero-label">Сейчас в библиотеке</p>
+        <h2>Твои треки</h2>
+        <p>Добавляй музыку с устройства и слушай прямо здесь.</p>
+      </div>
+    </section>
+
+    <div class="search-wrap">
+      <span>⌕</span>
+      <input id="searchInput" class="search" placeholder="Поиск по трекам" />
+    </div>
+
+    <section class="section-head">
+      <h3>Плейлист</h3>
+      <p id="trackCounter">0 треков</p>
+    </section>
+
+    <section id="trackList" class="track-list"></section>
+  </main>
+
+  <div id="miniPlayer" class="mini-player hidden">
+    <div class="mini-cover">♪</div>
+
+    <div class="mini-info">
+      <div id="miniTitle" class="mini-title">Ничего не играет</div>
+      <div id="miniArtist" class="mini-artist">Локальный файл</div>
+    </div>
+
+    <button id="miniPlayBtn" class="mini-play" type="button">▶</button>
+  </div>
+
+  <div id="fullPlayer" class="full-player hidden">
+    <section class="full-sheet">
+      <button id="closeFullBtn" class="close-btn" type="button">×</button>
+
+      <div class="big-cover">♪</div>
+
+      <div class="full-info">
+        <h2 id="fullTitle">Ничего не играет</h2>
+        <p id="fullArtist">Локальный файл</p>
+      </div>
+
+      <input
+        id="progressBar"
+        class="progress"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+      />
+
+      <div class="time-row">
+        <span id="currentTime">00:00</span>
+        <span id="durationTime">00:00</span>
+      </div>
+
+      <div class="full-controls">
+        <button id="shuffleBtn" class="side-control" type="button">⇄</button>
+        <button id="prevBtn" class="side-control" type="button">⏮</button>
+        <button id="playBtn" class="big-play" type="button">▶</button>
+        <button id="nextBtn" class="side-control" type="button">⏭</button>
+        <button id="repeatBtn" class="side-control" type="button">↻</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
